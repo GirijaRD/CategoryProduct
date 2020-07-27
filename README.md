@@ -6,7 +6,7 @@ The Task is building a RESTful APIs from scratch using any of Java/Python/NodeJS
 •	The Child category can have further child categories.
 •	The Category can have multiple products and a product can have multiple categories. The Entities must get saved in the database (could be MongoDB/ PSQL/ MySQL) and be retrieved via POST and GET Methods respectively.
 Business Logic:
-Candidate needs to design a data model and create APIs to -
+needs to design a data model and create APIs to -
 1.	Add a category
 2.	Add Product mapped to a category or categories.
 3.	Get all categories with all its child categories mapped to it.

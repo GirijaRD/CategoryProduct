@@ -1,0 +1,33 @@
+
+CREATE TABLE `coditationassign`.`category` (
+  `category_id` BIGINT(10) NOT NULL AUTO_INCREMENT,
+  `category_name` VARCHAR(255) NOT NULL,
+  `child_category_id` VARCHAR(255) NULL,
+  PRIMARY KEY (`category_id`),
+  UNIQUE INDEX `category_name_UNIQUE` (`category_name` ASC));
+
+
+CREATE TABLE `coditationassign`.`product` (
+  `product_id` BIGINT(10) NOT NULL AUTO_INCREMENT,
+  `product_name` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`product_id`),
+  UNIQUE INDEX `product_name_UNIQUE` (`product_name` ASC));
+
+
+CREATE TABLE `coditationassign`.`category_product` (
+  `category_product_id` BIGINT(10) NOT NULL AUTO_INCREMENT,
+  `category_id` BIGINT(10) NULL,
+  `product_id` BIGINT(10) NULL,
+  PRIMARY KEY (`category_product_id`),
+  INDEX `FK_category_id_idx` (`category_id` ASC),
+  INDEX `FK_product_id_idx` (`product_id` ASC),
+  CONSTRAINT `FK_category_id`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `coditationassign`.`category` (`category_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT,
+  CONSTRAINT `FK_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `coditationassign`.`product` (`product_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
